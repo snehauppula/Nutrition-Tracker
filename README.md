@@ -27,7 +27,7 @@ A MERN stack app to fetch and visualize nutrition data (calories, protein) for a
 ## Setup
 1. **Clone the Repo**:
    ```bash
-   git clone https://github.com/your-username/nutrition-tracker.git
+   git clone https://github.com/snehauppula/nutrition-tracker.git
    cd nutrition-tracker
    ```
 
@@ -82,21 +82,3 @@ nutrition-tracker/
 
 ## License
 MIT
-
----
-
-*Replace `your-username` and `your_api_key` with your GitHub username and Gemini API key. Add screenshots or a demo link later if desired.*
-
----
-
-### How to Add
-1. Create `README.md` in your project root.
-2. Copy-paste this content.
-3. Commit and push:
-   ```bash
-   git add README.md
-   git commit -m "Add simplified README"
-   git push origin main
-   ```
-
-This version is short and to the point, perfect for a quick overview. Let me know if you need adjustments!
