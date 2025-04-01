@@ -1,7 +1,3 @@
-Here’s a simplified version of the README for your "Nutrition Tracker" project. It’s concise, easy to read, and covers the essentials.
-
----
-
 # Nutrition Tracker
 
 A MERN stack app to fetch and visualize nutrition data (calories, protein) for any product using the Gemini API.
