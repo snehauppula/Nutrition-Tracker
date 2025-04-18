@@ -1,7 +1,5 @@
 # Nutrition Tracker
-
 A MERN stack app to fetch and visualize nutrition data (calories, protein) for any product using the Gemini API.
-
 ---
 
 ## Features
