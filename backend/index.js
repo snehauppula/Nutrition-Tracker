@@ -11,16 +11,13 @@ const {
 dotenv.config();
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-// Gemini API Setup
 const apiKey = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
@@ -33,7 +30,6 @@ const generationConfig = {
   responseMimeType: "text/plain",
 };
 
-// Nutrient Schema
 const nutrientSchema = new mongoose.Schema({
   product: String,
   calories: Number,
@@ -44,7 +40,6 @@ const nutrientSchema = new mongoose.Schema({
 });
 const Nutrient = mongoose.model("Nutrient", nutrientSchema);
 
-// API Endpoint to Fetch Nutrients
 app.post("/api/nutrients", async (req, res) => {
   const { product } = req.body;
 
@@ -54,10 +49,8 @@ app.post("/api/nutrients", async (req, res) => {
     const result = await chatSession.sendMessage(prompt);
     const responseText = result.response.text();
 
-    // Parse the response (example parsing, adjust based on Gemini output)
     const nutrients = parseNutrients(responseText);
 
-    // Save to MongoDB
     const nutrientData = new Nutrient({
       product,
       ...nutrients,
@@ -71,7 +64,6 @@ app.post("/api/nutrients", async (req, res) => {
   }
 });
 
-// Helper function to parse Gemini response (customize based on actual output)
 function parseNutrients(text) {
   const lines = text.split("\n");
   const nutrients = {};
@@ -84,6 +76,5 @@ function parseNutrients(text) {
   return nutrients;
 }
 
-// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
